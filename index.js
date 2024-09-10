@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 app.use(cors()); 
 app.use(express.json());
 
-const genAI = new GoogleGenerativeAI('AIzaSyAurUYYgZvKRHBquljQoWmy_lIlX3IveC0'); 
+const genAI = new GoogleGenerativeAI(process.env.API_KEY); 
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
 app.get('/', (req, res) => {
