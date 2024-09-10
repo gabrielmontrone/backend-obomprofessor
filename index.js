@@ -8,11 +8,7 @@ app.use(express.json());
 // Endpoint para gerar o conteúdo
 app.post('/generate', async (req, res) => {
     const { prompt } = req.body;
-
-    // Aqui você deve integrar com o modelo de IA ou serviço que gera o conteúdo
-    // Este é um exemplo fictício
     try {
-        // Substitua o código abaixo pela chamada real ao serviço de IA
         const generatedText = `Texto gerado com base no prompt: ${prompt}`;
         
         res.json({ generatedText });
