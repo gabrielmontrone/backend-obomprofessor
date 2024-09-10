@@ -16,6 +16,19 @@ app.get('/', (req, res) => {
     res.send('Hello, world!');
 });
 
+app.post('/generate', async (req, res) => {
+    const { prompt } = req.body;
+    
+    try {
+        const result = await model.generateContent([prompt]);
+        const responseText = result.response.text();
+        res.json({ response: responseText });
+    } catch (error) {
+        console.error('Erro ao gerar conteúdo:', error);
+        res.status(500).json({ error: 'Erro ao gerar conteúdo' });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
